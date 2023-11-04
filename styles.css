@@ -15,17 +15,18 @@ body {
     overflow-x: hidden;
 }
 
-svg{ 
-    width:30px;
-    height:30px;     
-}
-
-svg:hover{
+ svg:hover{
     cursor: pointer;
-    width:33px;
-    height:33px;
-    transition: all ease-in-out .3s;
-    
+    width: 25px;
+    height:25px;
+    transition: all ease-in-out 1s;
+    border: 1.2px solid #70f340;
+    border-radius: 50%;
+} 
+
+svg {
+    width: 20px;
+    height: 20px;
 }
 
 #wrapper {
@@ -79,7 +80,7 @@ svg:hover{
 }
 
 
-#stripelem{
+#stripelem {
     position: relative;
     right: 125px;
     display: flex;
@@ -87,16 +88,16 @@ svg:hover{
 
 }
 
-#stripelem h4{
+#stripelem h4 {
     font-family: "montserrat";
     font-size: .8rem;
     font-weight: 500;
 }
 
-#stripelem .line{
-    margin-left: 25px;
-    margin-right: 25px;
-    width: 170px;
+#stripelem .line {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 150px;
     height: 2px;
     background-color: black;
 }
@@ -108,7 +109,8 @@ svg:hover{
     align-items: center;
     position: absolute;
     top: 50%;
-    left: 0;;
+    left: 0;
+    ;
     transform: translate(-80%, -50%);
     width: 220px;
     height: 250px;
@@ -117,22 +119,22 @@ svg:hover{
     overflow: hidden;
 }
 
-#elemcard p{
+#elemcard p {
     text-align: center;
     font-size: 16px;
     line-height: 26px;
-   font-family: "montserrat";
+    font-family: "montserrat";
     color: #fff;
 }
 
-#background>h5{
+#background>h5 {
     position: absolute;
     top: 50%;
     left: -80px;
     color: #fff;
     font-family: "montserrat";
     text-transform: uppercase;
-    font-size:10px;
+    font-size: 10px;
     font: 600;
     letter-spacing: 12px;
     transform: rotate(-90deg);

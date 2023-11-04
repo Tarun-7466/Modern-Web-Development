@@ -11,34 +11,27 @@ window.addEventListener('mousemove', function (details) {
 
 });
 
-// WITHOUT Timelines (only using tweens with delays):
-gsap.from("#wrapper", { duration: 3, opacity: 0, scale: .6, ease: "expo.easeInOut" });
+//WITH Timelines (cleaner, more versatile)
+var tl = gsap.timeline({repeat: 0, repeatDelay: 1});
+tl.from("#wrapper", {duration: 1.5, opacity: 1, scale: .6, ease: "expo.easeInOut"});
+tl.from("#elemstrip", {x: 250, opacity: 0, duration: 1.5, ease: "expo.easeInOut"}, "-=.5");
 
-gsap.from("#elemstrip", { x: 250, opacity: 0, duration: 2, delay: 1., ease: "expo.easeInOut" }); //wait 1 second
+tl.from("#elemcard", { x:20, opacity: 0, duration:2,   ease: "expo.easeInOut" }); //wait 2 seconds
 
-gsap.from("#elemstrip".line, { opacity: 0, duration: 2, delay: 1., ease: "expo.easeInOut" }); //wait 1 second
+tl.from(".line", { width:0, opacity: 0, duration: 1.5,   ease: "expo.easeInOut" }); //wait 2 seconds
 
-gsap.from("#elemcard", { x: .2, opacity: 0, duration: 1, delay: 2, ease: "expo.easeInOut" }); //wait 2 seconds
+tl.from("#elemcard p", { y: 50, opacity: 0, duration:1.5,  ease: "expo.easeInOut" }, "-=1.5"); //wait 2 seconds
 
-gsap.from("#elemcard p", { y: 50, opacity: 0, duration: 1, delay: 3.5, ease: "expo.easeInOut" }); //wait 2 seconds
+tl.from("#background > h5", { scale: 0, opacity: 0, duration: 2,  ease: "expo.easeInOut" }, "-=.5"); //wait 2 seconds
 
-gsap.from(".line", { scale: 0, opacity: 0, duration: 3, delay: 1.5, ease: "expo.easeInOut" }); //wait 2 seconds
+    
+// then we can control the whole thing easily...
+// tl.pause();
+// tl.resume();
+// tl.seek(1.5);
+// tl.reverse();
+icon.addEventListener('click', function(){
+    tl.reverse();
+})
 
-gsap.from("#background > h5", { scale: 0, opacity: 0, duration: 3, delay: 1.5, ease: "expo.easeInOut" }); //wait 2 seconds
-
-
-icon.addEventListener('click', function () {
-    gsap.to("#wrapper", { duration: 3, opacity: 0, scale: 1, ease: "expo.easeInOut", delay:1 });
-
-    gsap.to("#elemstrip", { x: 250, opacity: 0, duration: 2, delay: 1., ease: "expo.easeInOut" }); //wait 1 second
-
-    gsap.to("#elemstrip".line, { opacity: 0, duration: 2, delay: 1., ease: "expo.easeInOut" }); //wait 1 second
-
-    gsap.to("#elemcard", { x: .2, opacity: 0, duration: 1, delay: 2, ease: "expo.easeInOut" }); //wait 2 seconds
-
-    gsap.to("#elemcard p", { y: 50, opacity: 0, duration: 1, delay: 3.5, ease: "expo.easeInOut" }); //wait 2 seconds
-
-    gsap.to(".line", { scale: 1, opacity: 0, duration: 3, delay: 1.5, ease: "expo.easeInOut" }); //wait 2 seconds
-
-    gsap.to("#background > h5", { scale: 1, opacity: 0, duration: 1, delay: 1.5, ease: "expo.easeInOut" }); //wait 2 seconds
-});
+// });
